@@ -83,6 +83,10 @@ const UICtrl = (function(){
           						<i class="edit-item fa fa-pencil"></i>
         					</a>`;
         	document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
+		},
+		clearInput: function() {
+			document.querySelector(UISelectors.itemNameInput).value = ''
+			document.querySelector(UISelectors.itemCaloriesInput).value = ''
 		}
 	}
 
@@ -104,6 +108,8 @@ const App = (function(ItemCtrl, UICtrl){
 			const newItem = ItemCtrl.addItem(input.name, input.calories)
 
 			UICtrl.addListItem(newItem)
+
+			UICtrl.clearInput()
 		}
 	}
 
